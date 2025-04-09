@@ -1,3 +1,8 @@
+// Redirect /index.html to root URL
+if (window.location.pathname.endsWith("index.html")) {
+    window.location.replace("/");
+  }  
+
 // Dark mode toggle functionality
 const darkModeToggle = document.getElementById('darkModeToggle');
 const body = document.body;
