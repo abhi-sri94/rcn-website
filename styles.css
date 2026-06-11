@@ -594,10 +594,10 @@ h1, h2, h3, h4, h5, h6 {
     .services h2,
     .about h2,
     .contact h2,
-    .web-development-services h2,
-    .digital-marketing-services h2,
-    .tally-hosting-services h2,
-    .it-security-services h2 {
+    .web-development-services h1,
+    .digital-marketing-services h1,
+    .tally-hosting-services h1,
+    .it-security-services h1 {
         font-size: 1.8rem;
     }
 
@@ -626,20 +626,13 @@ h1, h2, h3, h4, h5, h6 {
     background: var(--section-bg);
 }
 
-.web-development-services h2 {
-    text-align: center;
-    margin-bottom: 3rem;
-    color: var(--heading-color);
-    font-size: 2.5rem;
-}
-
 /* Web Development Services Page Specific Styles */
 .web-development-services {
     padding: 8rem 5% 5rem;
     background: var(--section-bg);
 }
 
-.web-development-services h2 {
+.web-development-services h1 {
     text-align: center;
     margin-bottom: 3rem;
     color: var(--heading-color);
@@ -652,7 +645,7 @@ h1, h2, h3, h4, h5, h6 {
     background: var(--section-bg);
 }
 
-.digital-marketing-services h2 {
+.digital-marketing-services h1 {
     text-align: center;
     margin-bottom: 3rem;
     color: var(--heading-color);
@@ -665,7 +658,7 @@ h1, h2, h3, h4, h5, h6 {
     background: var(--section-bg);
 }
 
-.tally-hosting-services h2 {
+.tally-hosting-services h1 {
     text-align: center;
     margin-bottom: 3rem;
     color: var(--heading-color);
@@ -678,7 +671,7 @@ h1, h2, h3, h4, h5, h6 {
     background: var(--section-bg);
 }
 
-.it-security-services h2 {
+.it-security-services h1 {
     text-align: center;
     margin-bottom: 3rem;
     color: var(--heading-color);
