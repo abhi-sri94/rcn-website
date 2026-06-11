@@ -7,7 +7,9 @@ const navbar = document.querySelector('.navbar');
 const savedTheme = localStorage.getItem('theme');
 if (savedTheme) {
     body.setAttribute('data-theme', savedTheme);
-    updateToggleIcon(savedTheme);
+    if (darkModeToggle) {
+        updateToggleIcon(savedTheme);
+    }
 }
 
 // Handle navbar background on scroll
@@ -21,27 +23,33 @@ window.addEventListener('scroll', () => {
     }
 });
 
-darkModeToggle.addEventListener('click', () => {
-    const currentTheme = body.getAttribute('data-theme');
-    const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
-    
-    body.setAttribute('data-theme', newTheme);
-    localStorage.setItem('theme', newTheme);
-    updateToggleIcon(newTheme);
-    
-    // Update navbar background immediately after theme change
-    if (window.scrollY > 50) {
-        navbar.style.background = 'var(--nav-bg)';
-        navbar.style.boxShadow = '0 2px 10px var(--card-shadow)';
-    } else {
-        navbar.style.background = 'var(--nav-bg)';
-        navbar.style.boxShadow = 'none';
-    }
-});
+if (darkModeToggle) {
+    darkModeToggle.addEventListener('click', () => {
+        const currentTheme = body.getAttribute('data-theme');
+        const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
+        
+        body.setAttribute('data-theme', newTheme);
+        localStorage.setItem('theme', newTheme);
+        updateToggleIcon(newTheme);
+        
+        // Update navbar background immediately after theme change
+        if (window.scrollY > 50) {
+            navbar.style.background = 'var(--nav-bg)';
+            navbar.style.boxShadow = '0 2px 10px var(--card-shadow)';
+        } else {
+            navbar.style.background = 'var(--nav-bg)';
+            navbar.style.boxShadow = 'none';
+        }
+    });
+}
 
 function updateToggleIcon(theme) {
-    const icon = darkModeToggle.querySelector('i');
-    icon.className = theme === 'dark' ? 'fas fa-sun' : 'fas fa-moon';
+    if (darkModeToggle) {
+        const icon = darkModeToggle.querySelector('i');
+        if (icon) {
+            icon.className = theme === 'dark' ? 'fas fa-sun' : 'fas fa-moon';
+        }
+    }
 }
 
 // Hamburger menu functionality
@@ -85,20 +93,22 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
 
 // Form Submission
 const contactForm = document.querySelector('.contact-form');
-contactForm.addEventListener('submit', (e) => {
-    e.preventDefault();
-    
-    // Get form data
-    const formData = new FormData(contactForm);
-    const data = Object.fromEntries(formData);
-    
-    // Here you would typically send the data to your server
-    console.log('Form submitted:', data);
-    
-    // Show success message
-    alert('Thank you for your message! We will get back to you soon.');
-    // contactForm.reset();
-});
+if (contactForm) {
+    contactForm.addEventListener('submit', (e) => {
+        e.preventDefault();
+        
+        // Get form data
+        const formData = new FormData(contactForm);
+        const data = Object.fromEntries(formData);
+        
+        // Here you would typically send the data to your server
+        console.log('Form submitted:', data);
+        
+        // Show success message
+        alert('Thank you for your message! We will get back to you soon.');
+        // contactForm.reset();
+    });
+}
 
 // Animate elements on scroll
 const animateOnScroll = () => {
@@ -130,8 +140,10 @@ document.querySelectorAll('.service-card').forEach(card => {
 
 // only numbers in phone input
 const phoneInput = document.querySelector('input[name="phone"]');
-phoneInput.addEventListener('input', (e) => {
-    e.target.value = e.target.value.replace(/[^0-9]/g, '');
-});
+if (phoneInput) {
+    phoneInput.addEventListener('input', (e) => {
+        e.target.value = e.target.value.replace(/[^0-9]/g, '');
+    });
+}
 
 // form submission message
