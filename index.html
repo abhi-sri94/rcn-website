@@ -190,31 +190,7 @@
 
 
     <script src="script.js"></script>
-    <script>
 
-        const form = document.querySelector(".contact-form");
-        form.addEventListener("submit", async function (e) {
-          e.preventDefault();
-          const data = new FormData(form);
-          const response = await fetch(form.action, {
-            method: "POST",
-            body: data
-          });
-      
-          const result = await response.json();
-          console.log(result); // You’ll see this in browser console
-          // alert("Submitted: " + JSON.stringify(result));
-          document.querySelector(".submit-button").textContent = "Message Sent!";
-        });
-        
-          document.querySelector(".contact-form").addEventListener("submit", function (e) {
-           // Delay form reset slightly to allow Web3Forms to capture data
-          setTimeout(() => {
-            this.reset();
-             }, 100); // delay in milliseconds
-            });
-          
-      </script>
       
 </body>
 </html> 
