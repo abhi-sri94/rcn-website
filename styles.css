@@ -479,18 +479,21 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .submit-button {
-    padding: 1rem;
-    background: var(--accent-color);
+    padding: 1rem 2rem;
+    background: var(--accent-gradient);
     color: white;
     border: none;
-    border-radius: 5px;
+    font-weight: 600;
+    border-radius: 8px;
     cursor: pointer;
     font-size: 1rem;
-    transition: background 0.3s ease;
+    box-shadow: 0 4px 15px var(--card-glow-shadow);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
 .submit-button:hover {
-    background: var(--accent-hover);
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px var(--card-glow-shadow);
 }
 
 .contact-info {
@@ -693,60 +696,3 @@ h1, h2, h3, h4, h5, h6 {
     background-color: #128C7E; /* Darker shade of WhatsApp green */
     color: var(--whatsapp-button-color); /* Keep the same text color on hover */
 } 
-
-.contact-section {
-    padding: 60px 0;
-    background: #f9f9f9;
-  }
-  
-  .contact-content {
-    display: flex;
-    justify-content: space-between;
-    align-items: flex-start;
-    flex-wrap: wrap;
-    max-width: 1000px;
-    margin: 0 auto;
-    gap: 30px;
-  }
-  
-  .contact-info {
-    flex: 1;
-    min-width: 200px;
-  }
-  
-  .contact-form {
-    flex: 2;
-    min-width: 300px;
-    display: flex;
-    flex-direction: column;
-    gap: 15px;
-  }
-  
-  .contact-form input,
-  .contact-form select,
-  .contact-form textarea {
-    padding: 12px;
-    font-size: 16px;
-    border: 1px solid #ccc;
-    border-radius: 6px;
-  }
-  
-  .contact-form textarea {
-    min-height: 120px;
-    resize: vertical;
-  }
-  
-  .submit-button {
-    padding: 12px 20px;
-    background-color: #007BFF;
-    border: none;
-    color: white;
-    font-size: 16px;
-    cursor: pointer;
-    border-radius: 6px;
-  }
-  
-  .submit-button:hover {
-    background-color: #0056b3;
-  }
-  
