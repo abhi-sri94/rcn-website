@@ -444,6 +444,96 @@ h1, h2, h3, h4, h5, h6 {
     color: var(--secondary-text);
 }
 
+/* Testimonials / Ratings Section */
+.testimonials {
+    padding: 5rem 5%;
+}
+
+.testimonials h2 {
+    text-align: center;
+    margin-bottom: 1rem;
+    color: var(--heading-color);
+}
+
+.testimonials-subtitle {
+    text-align: center;
+    color: var(--secondary-text);
+    margin-bottom: 4rem;
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+    font-size: 1.1rem;
+}
+
+.testimonials-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+}
+
+.testimonial-card {
+    background: var(--card-bg);
+    padding: 2.5rem 2rem;
+    border-radius: 16px;
+    border: 1px solid var(--nav-border);
+    box-shadow: 0 10px 30px var(--card-shadow);
+    transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.4s cubic-bezier(0.16, 1, 0.3, 1), border-color 0.4s ease;
+    position: relative;
+}
+
+.testimonial-card:hover {
+    transform: translateY(-8px) scale(1.01);
+    box-shadow: 0 15px 35px var(--card-glow-shadow);
+    border-color: var(--accent-color);
+}
+
+.stars {
+    color: #f1c40f;
+    margin-bottom: 1.5rem;
+    display: flex;
+    gap: 0.25rem;
+    font-size: 1.2rem;
+}
+
+.testimonial-text {
+    font-size: 1.05rem;
+    color: var(--text-color);
+    margin-bottom: 2rem;
+    line-height: 1.7;
+    font-style: italic;
+}
+
+.client-info {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+.client-avatar {
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    background: var(--accent-gradient);
+    color: white;
+    font-weight: 700;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.1rem;
+    box-shadow: 0 4px 10px var(--card-glow-shadow);
+}
+
+.client-details h4 {
+    color: var(--heading-color);
+    margin-bottom: 0.15rem;
+    font-size: 1rem;
+}
+
+.client-details p {
+    color: var(--secondary-text);
+    font-size: 0.85rem;
+}
+
 /* Contact Section */
 .contact {
     padding: 5rem 5%;
