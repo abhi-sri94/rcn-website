@@ -168,4 +168,36 @@ if (phoneInput) {
     });
 }
 
-// form submission message
+// Interactive Star Rating Form Logic
+const serviceSelect = document.querySelector('select[name="service"]');
+const ratingContainer = document.querySelector('.rating-input-container');
+
+if (serviceSelect && ratingContainer) {
+    const toggleRatingField = () => {
+        if (serviceSelect.value === 'Write a Review / Feedback') {
+            ratingContainer.style.display = 'flex';
+            // Require rating when writing a review
+            const ratingInputs = ratingContainer.querySelectorAll('input[name="rating"]');
+            ratingInputs.forEach(input => input.required = true);
+        } else {
+            ratingContainer.style.display = 'none';
+            // Remove required state & reset selected rating
+            const ratingInputs = ratingContainer.querySelectorAll('input[name="rating"]');
+            ratingInputs.forEach(input => {
+                input.required = false;
+                input.checked = false;
+            });
+        }
+    };
+
+    serviceSelect.addEventListener('change', toggleRatingField);
+
+    // Auto-select "Write a Review" option when clicking the testimonial CTA button
+    const writeReviewBtn = document.querySelector('.testimonials-cta a');
+    if (writeReviewBtn) {
+        writeReviewBtn.addEventListener('click', () => {
+            serviceSelect.value = 'Write a Review / Feedback';
+            toggleRatingField();
+        });
+    }
+}

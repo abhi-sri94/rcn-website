@@ -559,6 +559,50 @@ h1, h2, h3, h4, h5, h6 {
     box-shadow: 0 6px 20px var(--card-glow-shadow);
 }
 
+/* Star Rating Input Selector */
+.rating-input-container {
+    margin: 0.5rem 0;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.rating-label {
+    font-weight: 600;
+    color: var(--heading-color);
+    font-size: 0.95rem;
+}
+
+.star-rating-selector {
+    display: flex;
+    flex-direction: row-reverse;
+    justify-content: flex-end;
+    gap: 0.4rem;
+}
+
+.star-rating-selector input {
+    display: none;
+}
+
+.star-rating-selector label {
+    font-size: 1.8rem;
+    color: var(--secondary-text);
+    opacity: 0.4;
+    cursor: pointer;
+    transition: color 0.2s ease, opacity 0.2s ease, transform 0.2s ease;
+}
+
+.star-rating-selector label:hover,
+.star-rating-selector label:hover ~ label,
+.star-rating-selector input:checked ~ label {
+    color: #f1c40f;
+    opacity: 1;
+}
+
+.star-rating-selector label:hover {
+    transform: scale(1.15);
+}
+
 /* Contact Section */
 .contact {
     padding: 5rem 5%;
