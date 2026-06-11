@@ -110,33 +110,31 @@ if (contactForm) {
     });
 }
 
-// Animate elements on scroll
-const animateOnScroll = () => {
-    const elements = document.querySelectorAll('.service-card, .about-content, .contact-container');
-    
-    elements.forEach(element => {
-        const elementTop = element.getBoundingClientRect().top;
-        const elementBottom = element.getBoundingClientRect().bottom;
-        
-        if (elementTop < window.innerHeight && elementBottom > 0) {
-            element.style.opacity = '1';
-            element.style.transform = 'translateY(0)';
-        }
+// Intersection Observer for scroll-driven animations
+const revealElements = document.querySelectorAll('.reveal');
+
+if ('IntersectionObserver' in window) {
+    const revealObserver = new IntersectionObserver((entries, observer) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('active');
+                observer.unobserve(entry.target); // animated once
+            }
+        });
+    }, {
+        threshold: 0.15,
+        rootMargin: '0px 0px -40px 0px'
     });
-};
 
-// Initial animation check
-animateOnScroll();
-
-// Check for animations on scroll
-window.addEventListener('scroll', animateOnScroll);
-
-// Add loading animation to service cards
-document.querySelectorAll('.service-card').forEach(card => {
-    card.style.opacity = '0';
-    card.style.transform = 'translateY(20px)';
-    card.style.transition = 'opacity 0.5s ease, transform 0.5s ease';
-}); 
+    revealElements.forEach(element => {
+        revealObserver.observe(element);
+    });
+} else {
+    // Fallback for older browsers
+    revealElements.forEach(element => {
+        element.classList.add('active');
+    });
+} 
 
 // only numbers in phone input
 const phoneInput = document.querySelector('input[name="phone"]');
