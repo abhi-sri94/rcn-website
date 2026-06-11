@@ -416,15 +416,27 @@ h1, h2, h3, h4, h5, h6 {
 
 .stat {
     text-align: center;
-    padding: 1rem;
+    padding: 1.5rem;
     background: var(--card-bg);
-    border-radius: 10px;
+    border-radius: 14px;
+    border: 1px solid var(--nav-border);
+    box-shadow: 0 10px 25px var(--card-shadow);
     color: var(--text-color);
+    transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.stat:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 12px 30px var(--card-glow-shadow);
 }
 
 .stat h3 {
     font-size: 2rem;
-    color: #3498db;
+    font-weight: 800;
+    background: var(--accent-gradient);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    display: inline-block;
     margin-bottom: 0.5rem;
 }
 
@@ -695,4 +707,24 @@ h1, h2, h3, h4, h5, h6 {
 .whatsapp-button:hover {
     background-color: #128C7E; /* Darker shade of WhatsApp green */
     color: var(--whatsapp-button-color); /* Keep the same text color on hover */
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+    width: 10px;
+}
+
+::-webkit-scrollbar-track {
+    background: var(--bg-color);
+}
+
+::-webkit-scrollbar-thumb {
+    background: var(--nav-border);
+    border-radius: 5px;
+    border: 2px solid var(--bg-color);
+    transition: background 0.3s ease;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: var(--accent-color);
 } 
